@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "726243802274",
+    "firebase_url": "https://kurdi-poli-yak-c5bd5.firebaseio.com",
+    "project_id": "kurdi-poli-yak-c5bd5",
+    "storage_bucket": "kurdi-poli-yak-c5bd5.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:726243802274:android:36edcbd855c71eb8c3abfb",
+        "android_client_info": {
+          "package_name": "com.kp1.kurdi_poli_yak"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "726243802274-u3d2q93m6ql8uad4nm3887l3edr76thq.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCoAHKnIksoH1WuUrswF2_pZqFEFJj_8lU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "726243802274-u3d2q93m6ql8uad4nm3887l3edr76thq.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
