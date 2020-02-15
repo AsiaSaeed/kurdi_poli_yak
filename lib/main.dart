@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+
+import 'package:flutter/material.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 void main() => runApp(MyApp());
 
@@ -11,24 +13,24 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.deepOrange,
       ),
-      home:MainScreen(),
+      home: MainScreen(),
     );
   }
 }
+
 class MainScreen extends StatelessWidget{
 
   List<Widget>makeListWidget(AsyncSnapshot snapshot){
     return snapshot.data.documents.map<Widget>((document){
       return ListTile(
         title: Center (
-            child:Text(
-              document["name"],style:TextStyle(color: Colors.black,fontSize: 25.0),
-            ),
+          child:Text(
+            document["name"],style:TextStyle(color: Colors.black,fontSize: 25.0),
+          ),
         ),
         subtitle:Center(
-          child: Text(document["letter"].toString(),style:TextStyle(color: Colors.black,fontSize: 22.0),
+          child: Image.network(document["imgurl"].toString())
         ),
-      ),
       );
     }).toList();
   }
