@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
-
-import 'package:flutter/material.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:cached_network_image/cached_network_image.dart';
 void main() => runApp(MyApp());
 
 class MyApp extends StatelessWidget {
@@ -10,6 +9,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'کوردی پۆلی یەک',
+      debugShowCheckedModeBanner: false,
       theme: ThemeData(
         primarySwatch: Colors.deepOrange,
       ),
@@ -18,22 +18,13 @@ class MyApp extends StatelessWidget {
   }
 }
 
-class MainScreen extends StatelessWidget{
+class MainScreen extends StatefulWidget{
 
-  List<Widget>makeListWidget(AsyncSnapshot snapshot){
-    return snapshot.data.documents.map<Widget>((document){
-      return ListTile(
-        title: Center (
-          child:Text(
-            document["name"],style:TextStyle(color: Colors.black,fontSize: 25.0),
-          ),
-        ),
-        subtitle:Center(
-          child: Image.network(document["imgurl"].toString())
-        ),
-      );
-    }).toList();
-  }
+  @override
+  _MainScreenState createState() => _MainScreenState();
+}
+
+class _MainScreenState extends State<MainScreen> {
 
   @override
   Widget build(BuildContext context) {
@@ -45,14 +36,19 @@ class MainScreen extends StatelessWidget{
       body: Container(
         child: StreamBuilder(
           stream: Firestore.instance.collection('lesson').snapshots(),
-          builder: (context,snapshot){
-            switch(snapshot.connectionState){
-              case ConnectionState.waiting:
-                return CircularProgressIndicator();
+          builder: (BuildContext context, AsyncSnapshot<QuerySnapshot> snapshot) {
+            if (snapshot.hasError)
+              return new Text('Error: ${snapshot.error}');
+            switch (snapshot.connectionState) {
+              case ConnectionState.waiting: return new Text('Loading...');
               default:
-                return ListView(
-                  children:makeListWidget(snapshot),
+                return Center(
+                  child: CachedNetworkImage(
+                    imageUrl: ""+snapshot.data.documents[01]['imgurl'].toString(),
+                      placeholder: (context, url) => CircularProgressIndicator()
+                  ),
                 );
+            // (""+snapshot.data.documents[01]['imgurl'].toString());
             }
           },
         ),
