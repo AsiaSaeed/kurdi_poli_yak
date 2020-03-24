@@ -4,7 +4,7 @@ Is an application that would help students in first stage to learn and study in 
 
 ## Getting Started
 
-This project is a starting point for a Flutter application.
+This project is a starting point for a Flutter application for Kurdish language.
 
 A few resources to get you started if this is your first Flutter project:
 
