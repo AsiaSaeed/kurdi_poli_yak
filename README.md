@@ -1,6 +1,6 @@
 # kurdi_poli_yak
 
-Is an application that would help students in first stage to learn and study in a more professional way in develeopment not published yet
+Is an application that would help students in first stage to learn and study Kurdish language in a more professional way in develeopment not published yet.
 
 ## Getting Started
 
